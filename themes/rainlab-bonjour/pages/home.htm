@@ -1,0 +1,29 @@
+title = "Hello"
+url = "/"
+layout = "default"
+
+[slideshow]
+slideshow = 2
+==
+<div class="container">
+    <div class="col-md-12 row mt-2" style="">
+        <div class="col-md-6 rb" style="height: 325px">
+
+        </div>
+        <div class="col-md-6 rb" style="padding: 0;">
+            {% component 'slideshow' %}
+        </div>
+    </div>
+    <div class="col-md-12 row mt-2" style="">
+        <div class="rb col-md-3">News</div>
+        <div class="rb col-md-9">
+            <div class="col-12 rb row" style="height: 325px">It tour</div>
+            <div class="col-12 rb row mt-2" style="height: 325px">/image</div>
+        </div>
+
+    </div>
+</div>
+
+{% put scripts %}
+
+{% endput %}

@@ -1,0 +1,52 @@
+name: 'Main Menu'
+items:
+    -
+        title: Головна
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Мови
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: content-models
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Сообщения
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: messages
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: статика
+        nesting: '1'
+        type: static-page
+        url: ''
+        code: content
+        reference: content
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

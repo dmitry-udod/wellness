@@ -1,0 +1,128 @@
+[staticMenu mainMenu]
+code = "main-menu"
+==
+{% import _self as nav %}
+
+{% macro render_menu(items) %}
+    {% import _self as nav %}
+
+    {% for item in items %}
+        {% if item.items %}
+            <li role="presentation" class="dropdown {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }}">
+                <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">
+                    {{ item.code ? ('nav.'~item.code)|_ : item.title }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    {{ nav.render_menu(item.items) }}
+                </ul>
+            </li>
+        {% else %}
+            <li role="presentation" class="{{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }}">
+                <a href="{{ item.url }}">{{ item.code ? ('nav.'~item.code)|_ : item.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+<style>
+    nav#layout-nav .navbar-nav > li > a {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #3B72A6;
+    }
+
+    .rb {border: 1px solid red}
+    .mt-2 { margin-top: 2rem}
+</style>
+
+<nav id="layout-nav" class="navbar" role="navigation">
+    <div class="container">
+        <!--
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ 'home'|page }}"></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-main-collapse">
+        -->
+        <div class="navbar-main">
+            <div class="col-md-12 row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <a href="{{ 'home'|page }}">
+                            <img src="/themes/rainlab-bonjour/assets/images/logo.png" width="214" height="134">
+                        </a>
+                    </div>
+
+                    <div class="col-md-6  text-right">
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12 ">
+                                <div class="card-body">
+                                    <p class="contact-small-text">Контакты офиса компании</p>
+                                    <p class="contact-small-text">Черкассы, Хуе мае срит</p>
+                                    <p class="contact-small-text">info@kitchen.com</p>
+                                    <p class="contact-small-text">
+                                        <a href="tel:+38093000000">+38 093 000 00 00</a>
+                                    </p>
+                                    <p class="contact-small-text">
+                                        Skype:<a href="skype:wellnesstour">wellnesstoyr</a>
+                                    </p>
+                                </div>
+                        </div>
+
+                    <!--
+                        <ul class="text-right list-unstyled">
+                            <li><span style="color:#5c6774">Контакты офиса компании</span>: Черкассы</li>
+                            <li><span style="color:#5c6774">Телефон</span>: </li>
+                        </ul>
+                        -->
+                    </div>
+                </div>
+                <div class="col-md-12 mt-2">
+                        {% if mainMenu.menuItems %}
+                        <ul class="nav navbar-nav">
+                            {{ nav.render_menu(mainMenu.menuItems) }}
+                        </ul>
+                        {% endif %}
+                </div>
+            </div>
+
+            <!--<div class="col-md-12 row">-->
+                <!--<div class="col">-->
+                    <!--<div class="mx-auto">-->
+
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+            <!--
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="javascript:toggleHelp('#localeHelp')">
+                        <i class="icon-question-sign hidden-xs"></i>
+                        <span class="visible-xs">{{ 'Help'|_ }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:toggleHelp('#localeHelp')">
+                        <i class="icon-facebook-sign hidden-xs"></i>
+                        <span class="visible-xs">{{ 'Help'|_ }}</span>
+                    </a>
+                </li>
+            </ul>
+            -->
+        </div>
+    </div>
+</nav>
+
+{% put help %}
+    <!-- Locale Help -->
+    <div id="localeHelp" class="help-popup">
+        <button class="setup-close" type="button" onclick="toggleHelp('#localeHelp')">&times;</button>
+        <div class="setup-content">
+            {% content 'locale-help.htm' %}
+        </div>
+    </div>
+{% endput %}
