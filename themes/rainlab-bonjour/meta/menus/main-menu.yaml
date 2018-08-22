@@ -14,12 +14,10 @@ items:
             cssClass: ''
             isExternal: '0'
     -
-        title: Мови
-        nesting: '0'
-        type: static-page
+        title: Новини
+        type: cms-page
         code: ''
-        reference: content-models
-        replace: '0'
+        reference: News
         viewBag:
             isHidden: '0'
             cssClass: ''

@@ -33,22 +33,78 @@ code = "main-menu"
 
     .rb {border: 1px solid red}
     .mt-2 { margin-top: 2rem}
+
+     .post-list {
+         list-style: none;
+         padding-left: 0;
+     }
+
+    .f-center {
+        display: flex;
+        justify-content: center;
+    }
+
+    }
+    ul.socialIcons {
+        padding: 0;
+        text-align: center;
+    }
+    .socialIcons li {
+        background: yellow;
+        list-style: none;
+        display: inline-block;
+        margin: 15px;
+        border-radius: 2em;
+        overflow:hidden;
+    }
+    .socialIcons li a {
+        display: block;
+        padding: .5em;
+        max-width: 2.3em;
+        min-width: 2.3em;
+        height: 2.3em;
+        white-space: nowrap;
+        line-height: 1.5em;
+        transition:.5s;
+        text-decoration: none;
+        font-family: arial;
+        color: #fff;
+    }
+    .socialIcons li i {
+        margin-right:.5em;
+    }
+    .socialIcons li:hover a {
+        max-width:200px;
+        padding-right:1em;
+    }
+    .socialIcons .facebook {
+        background: #3b5998;
+        box-shadow: 0 0 16px #3b5998;
+    }
+    .socialIcons .twitter {
+        background: #00aced;
+        box-shadow: 0 0 16px #00aced;
+    }
+    .socialIcons .instagram {
+        background: #cd486b;
+        box-shadow: 0 0 16px #cd486b;
+    }
+    .socialIcons .skype {
+        background: #00aff0;
+        box-shadow: 0 0 16px #00aff0;
+    }
+
+    /*#layout-content {*/
+        /*background: url('https://r.tez-tour.com/portal/images/pageBgr-01.jpg');*/
+    /*}*/
+
+    /*#layout-content .container {*/
+        /*background: rgba(255, 255, 255, 0.8);*/
+    /*}*/
 </style>
 
 <nav id="layout-nav" class="navbar" role="navigation">
     <div class="container">
-        <!--
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ 'home'|page }}"></a>
-        </div>
-
-        <div class="collapse navbar-collapse navbar-main-collapse">
-        -->
         <div class="navbar-main">
             <div class="col-md-12 row">
                 <div class="col-md-12">
@@ -72,13 +128,6 @@ code = "main-menu"
                                     </p>
                                 </div>
                         </div>
-
-                    <!--
-                        <ul class="text-right list-unstyled">
-                            <li><span style="color:#5c6774">Контакты офиса компании</span>: Черкассы</li>
-                            <li><span style="color:#5c6774">Телефон</span>: </li>
-                        </ul>
-                        -->
                     </div>
                 </div>
                 <div class="col-md-12 mt-2">
@@ -89,30 +138,6 @@ code = "main-menu"
                         {% endif %}
                 </div>
             </div>
-
-            <!--<div class="col-md-12 row">-->
-                <!--<div class="col">-->
-                    <!--<div class="mx-auto">-->
-
-                <!--</div>-->
-                <!--</div>-->
-            </div>
-            <!--
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="javascript:toggleHelp('#localeHelp')">
-                        <i class="icon-question-sign hidden-xs"></i>
-                        <span class="visible-xs">{{ 'Help'|_ }}</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:toggleHelp('#localeHelp')">
-                        <i class="icon-facebook-sign hidden-xs"></i>
-                        <span class="visible-xs">{{ 'Help'|_ }}</span>
-                    </a>
-                </li>
-            </ul>
-            -->
         </div>
     </div>
 </nav>

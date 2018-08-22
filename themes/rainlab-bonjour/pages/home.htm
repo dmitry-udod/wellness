@@ -1,25 +1,47 @@
 title = "Hello"
 url = "/"
 layout = "default"
+is_hidden = 0
 
 [slideshow]
 slideshow = 2
-==
-<div class="container">
-    <div class="col-md-12 row mt-2">
-        <div class="col-md-12 rb" style="padding: 0;">
-            {% component 'slideshow' %}
-        </div>
+numberOfSlide = 5
 
-        <div class="col-md-12 mt-2 rb ">
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "blog_post"
+==
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="col-md-12 row mt-2" style="">
+        <div class="col-md-8">
             <div id="tour_search_module" class="col-md-12"></div>
         </div>
+        <div class="col-md-4" style="padding: 0;">
+            {% component 'slideshow' %}
+        </div>
     </div>
-    <div class="col-md-12 row mt-2" style="">
-        <div class="rb col-md-3">News</div>
-        <div class="rb col-md-9">
-            <div class="col-12 rb row" style="height: 325px">It tour</div>
-            <div class="col-12 rb row mt-2" style="height: 325px">/image</div>
+
+    <hr>
+
+    <div class="col-md-12 row mt-2">
+        <div class="col-md-6">
+            <ul class="socialIcons f-center" style="padding: 0px">
+                <li class="facebook"><a href="#"><i class="fa fa-fw fa-facebook"></i>Facebook</a></li>
+                <li class="twitter"><a href="#"><i class="fa fa-fw fa-twitter"></i>Twitter</a></li>
+                <li class="instagram"><a href="#"><i class="fa fa-fw fa-instagram"></i>Instagram</a></li>
+                <li class="skype"><a href="#"><i class="fa fa-fw fa-skype"></i>Skype</a></li>
+            </ul>
+
+            {% component 'blogPosts' %}
+        </div>
+        <div class="col-md-6" style="padding: 0;">
+            <img src="https://r.tez-tour.com/portal/images/country-bgr/136683.jpg" width="100%">
         </div>
 
     </div>

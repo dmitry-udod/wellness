@@ -1,11 +1,13 @@
 {% if __SELF__.slideshow.slides %}
-<div id='slideshow' class='carousel slide' data-ride='carousel' data-interval='3500'>
-    <div class='carousel-content'>
+<div id='slideshow' class='carousel slide' data-ride='carousel' data-interval='2000'>
+    <div class='carousel-content' >
 
         <div class='carousel-inner' role='listbox'>
             {% for i, slide in __SELF__.slideshow.slides %}
             <div class='item{% if loop.first %} active{% endif %}'>
-                <img class='img-responsive' src='{{ slide.image.path }}' alt='{{ slide.image.title }}'>
+                <a href="{{ slide.link }}">
+                    <img class='img-responsive' src='{{ slide.image.path }}' alt='{{ slide.image.title }}' style=" height: 350px">
+                </a>
                 {% if slide.name or slide.description %}
                 <div class='carousel-caption clearfix'>
                     {% if slide.name %}
@@ -14,9 +16,9 @@
                     {% if slide.description %}
                     <div class='carousel-description'>{{ slide.description|raw }}</div>
                     {% endif %}
-                    {% if slide.link %}
-                    <a class='carousel-caption-link' href='{{ slide.link }}' target='_blank'><strong>Learn more222222222</strong></a>
-                    {% endif %}
+                    <!--{% if slide.link %}-->
+                    <!--<a class='carousel-caption-link' href='{{ slide.link }}' target='_blank'><strong>Learn more222222222</strong></a>-->
+                    <!--{% endif %}-->
                 </div>
                 {% endif %}
             </div>
